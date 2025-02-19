@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#myDIV {
+  border: 1px solid black;
+  width: 200px;
+  height: 100px;
+  overflow: scroll;
+}
+</style>
+</head>
+<body>
+
+<p>Try the scrollbar in div.</p>
+
+<div id="myDIV" onscroll="myFunction()">In my younger and more vulnerable years my father gave me some advice that I've been turning over in my mind ever since.
+<br><br>
+'Whenever you feel like criticizing anyone,' he told me, just remember that all the people in this world haven't had the advantages that you've had.'</div>
+
+<script>
+let isScrolling;
+let lastScrollTop = 0; // This variable will keep track of the last scroll position
+
+function myFunction() {
+  // Get the current scroll position
+  let currentScrollTop = document.getElementById("myDIV").scrollTop;
+
+  // Compare the current scroll position with the last one
+  if (currentScrollTop > lastScrollTop) {
+    // User is scrolling down
+    document.getElementById("myDIV").style.color = "green"; // Color for scrolling down
+  } else if (currentScrollTop < lastScrollTop) {
+    // User is scrolling up
+    document.getElementById("myDIV").style.color = "blue"; // Color for scrolling up
+  }
+
+  // Update lastScrollTop to the current scroll position
+  lastScrollTop = currentScrollTop;
+
+  // Clear the previous timeout
+  window.clearTimeout(isScrolling);
+
+  // Set a new timeout to change color to black after scrolling stops
+  isScrolling = setTimeout(function() {
+    document.getElementById("myDIV").style.color = "black"; // Reset to black after scrolling stops
+  }, 150); // 150ms after the last scroll event
+}
+</script>
+
+<p>A function is triggered when you scroll in div. The function sets the color of the text in div to different colors when scrolling up (blue) or down (green), and after stopping the scroll, it changes to black.</p>
+
+</body>
+</html>

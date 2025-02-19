@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<style>
+button{
+position:relative;
+z-index :2;
+}
+#im{
+position:absolute;
+top:0px;
+left:0px;
+cursor:pointer;
+transition: top 0.1s,left 0.1s;
+}
+</style>
+</head>
+<body>
+<h1 id = "h1"> The flower</h1>
+<br>
+<br>
+<img alt = "The flower" width = "100px" id = 'im'
+src = "https://github.com/Robert-Richardson1599/htmlimages/blob/main/normal.gif?raw=true">
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<button id = "b1" onclick = "document.getElementById('im').src = 'https://github.com/Robert-Richardson1599/htmlimages/blob/main/greenflower.gif?raw=true';
+document.getElementById('h1').textContent = 'So you have selected green'
+document.getElementById('h1').style.fontStyle = 'italic';
+document.getElementById('h1').style.fontFamily = 'sans-serif';">
+Green flower </button>
+<button id = "b2" onclick = "document.getElementById('im').src = 'https://github.com/Robert-Richardson1599/htmlimages/blob/main/blue1flower.gif?raw=true';
+document.getElementById('h1').textContent = 'So you have selected blue'
+document.getElementById('h1').style.fontStyle = 'italic';
+document.getElementById('h1').style.fontFamily = 'sans-serif';">
+Blue flower</button>
+<button id = "b3" onclick = "document.getElementById('im').src = 'https://github.com/Robert-Richardson1599/htmlimages/blob/main/normal.gif?raw=true'">
+Default</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button onclick = "move('up')">Up</button>
+<button onclick = "move('down')">Down</button>
+<button onclick = "move('left')">Left</button>
+<button onclick = "move('right')">Right</button>
+<BR>
+<BR>
+<br>
+<button onclick = "enablefollow()">Enable cursor follow</button>
+<button onclick = "disablefollow()">Disable cursor follow</button>
+
+<script>
+const flower = document.getElementById('im');
+let isdragging = false;
+let offsetx,offsety;
+function move(dir){
+
+const curtop = parseInt(flower.style.top)||0;
+const curleft = parseInt(flower.style.left)||0;
+
+if ((dir==='up')||(dir ==='w')){
+flower.style.top = curtop - 10 +'px';
+}
+if ((dir==='down')||(dir ==='s')){
+flower.style.top = curtop + 10 +'px';
+}
+if ((dir==='left')||(dir ==='a')){
+flower.style.left = curleft - 10 +'px';
+}
+if ((dir==='right')||(dir ==='d')){
+flower.style.left = curleft + 10 +'px';
+}
+}
+
+document.addEventListener('keydown',function(event){
+if ((event.key === 'ArrowUp')||(event.key==='w')){
+move('up')
+}
+if ((event.key === 'ArrowDown')||(event.key==='s')){
+move('down')
+}
+if ((event.key === 'ArrowLeft')||(event.key==='a')){
+move('left')
+}
+if ((event.key === 'ArrowRight')||(event.key==='d')){
+move('right')
+}
+
+});
+
+
+flower.addEventListener('mousedown',function(event){
+isdragging = true;
+offsetx = event.clientX-flower.getBoundingClientRect().left;
+offsety = event.clientY-flower.getBoundingClientRect().top;
+flower.style.cursor = 'grabbing';
+});
+document.addEventListener('mousemove',function(event){
+if (isdragging){
+
+flower.style.top = event.clientY-offsety+'px';
+flower.style.left = event.clientX-offsetx+'px';
+}
+});
+document.addEventListener('mouseup',function(){
+isdragging =false;
+flower.style.cursor = 'pointer';
+});
+let followcursor = false;
+function enablefollow(){
+followcursor = true;
+}
+
+function disablefollow(){
+followcursor = false;
+}
+document.addEventListener('mousemove',function(event){
+if(!followcursor) return;
+const target = event.target;
+if(target.tagName === 'BUTTON') return;
+const newleft = event.clientX - flower.offsetWidth/2;
+const newtop = event.clientY - flower.offsetHeight/2;
+
+flower.style.top = Math.min(Math.max(newtop,0),window.innerHeight - flower.offsetHeight)+'px';
+flower.style.left = Math.min(Math.max(newleft,0),window.innerWidth-flower.offsetWidth)+'px';
+
+});
+
+
+</script>
+</body>
+</html>
+
+
+
+

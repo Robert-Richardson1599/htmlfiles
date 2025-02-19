@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.jump{
+transform:translateY(-150px);
+}
+.size{
+width:100px;
+}
+.imgs{
+postiton:relative;
+left:0px;
+}
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+</style>
+</head>
+
+<body>
+<img id = 'im' alt="flower"
+class = 'imgs'
+width = "200px"
+src = "https://github.com/Robert-Richardson1599/htmlimages/blob/main/blue1flower.gif?raw=true">
+
+<script>
+const image = document.getElementById('im');
+document.addEventListener('keydown',(event)=>{
+if (event.code === 'Space'){
+image.classList.add('jump');
+};
+
+});
+
+
+
+</script>
+</body>
+</html>

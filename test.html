@@ -1,0 +1,82 @@
+<!--  <!doctype html>
+<html>
+<body>
+<h1> Heading</h1>
+<script>
+const FunctionPrototype = {
+  customMethod: function() {
+    console.log("Custom method on FunctionPrototype");
+  }
+};
+
+function FunctionConstructor() {}
+
+// Set FunctionConstructor to inherit from FunctionPrototype
+FunctionConstructor.__proto__ = FunctionPrototype;
+
+FunctionConstructor.prototype = FunctionPrototype;
+
+// Test the inheritance
+FunctionConstructor.customMethod(); 
+
+const fn = new FunctionConstructor();
+fn.customMethod();
+</script>
+</body>
+</html>
+
+-->
+
+<!--
+<!doctype html>
+<html>
+<body>
+<h1> Heading</h1>
+<script>
+
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.greet = function() {
+    console.log("Hello, my name is " + this.name);
+};
+
+let john = new Person("John", 30);
+console.log(Person.greet());
+//console.log(Person.name);
+console.log(Person.age); 
+
+
+
+</script>
+</body>
+</html>
+-->
+
+
+
+<!doctype html>
+<html>
+<body>
+<h1> Heading</h1>
+<script>
+
+
+const obj = {
+    value: 42,
+    showValue: function() {
+       const fn = () => {
+            console.log(this.value);
+        };
+        fn();
+    }
+};
+
+obj.showValue();
+
+</script>
+</body>
+</html>

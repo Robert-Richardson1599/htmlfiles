@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jumping Image</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .image {
+      position: relative;
+      width: 100px;
+      transition: transform 0.3s ease;
+    }
+
+    .jump {
+      transform: translateY(-250px);
+width:200px;
+    }
+    .jump1 {
+      transform: translateY(-200px);
+
+    }
+    .jump2 {
+      transform: translateY(-150px);
+
+    }
+    .jump3 {
+      transform: translateY(-50px);
+
+    }
+
+    .left {
+      transform: translateX(-50px);
+width:250px;
+    }
+  </style>
+</head>
+<body>
+  <h1> Flex and Jump check</h1>
+  <div class="container">
+    <img  src="https://github.com/Robert-Richardson1599/htmlimages/blob/main/blue1flower.gif?raw=true" 
+    width="100px" alt="Jumping Image" class="image" id="jumpingImage">
+  </div>
+  <p> Lets see what is this flex container</p>
+
+  <script>
+    const image = document.getElementById('jumpingImage');
+
+    // Add event listener for the spacebar
+    document.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') {
+        event.preventDefault(); // Prevent default behavior of the spacebar
+        image.classList.add('jump');
+
+        // Remove the 'jump' class after the animation ends
+        setTimeout(() => {
+          image.classList.remove('jump');
+        }, 300); // Match the duration in CSS transition
+
+ setTimeout(() => {
+          image.classList.add('jump1');
+        }, 600);
+        // Remove the 'jump' class after the animation ends
+        setTimeout(() => {
+          image.classList.remove('jump1');
+        }, 900); // Match the duration in CSS transition
+      
+ setTimeout(() => {
+          image.classList.add('jump2');
+        }, 1100);
+        // Remove the 'jump' class after the animation ends
+        setTimeout(() => {
+          image.classList.remove('jump2');
+        }, 1300); // Match the duration in CSS transition
+      
+ setTimeout(() => {
+          image.classList.add('jump3');
+        }, 1500);
+        // Remove the 'jump' class after the animation ends
+        setTimeout(() => {
+          image.classList.remove('jump3');
+        }, 1800); // Match the duration in CSS transition
+      }
+    
+    });
+  </script>
+</body>
+</html>

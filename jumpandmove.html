@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jumping Image</title>
+</head>
+<style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f0f0f0;
+    }
+
+    .container {
+      position: relative;
+    }
+
+    .image {
+      position: relative;
+      width: 100px;
+      transition: transform 0.3s ease;
+left:5px;
+    }
+
+    .jump {
+      transform: translateY(-150px);
+    }
+
+    .left {
+      transform: translateX(-50px);
+    }
+  </style>
+<body>
+
+  <h1> Flex and Jump check</h1>
+  <div class="container">
+    <img src="https://github.com/Robert-Richardson1599/htmlimages/blob/main/blue1flower.gif?raw=true" 
+    width="100px" alt="Jumping Image" class="image" id="jumpingImage">
+  </div>
+<p> Lets see what is this flex container</p>
+<p id = 'p'>Hello</p>
+<br>
+<pre>"  hi  "</pre>
+<p id = 'q'>what</p>
+
+<script>
+const image = document.getElementById('jumpingImage')
+document.addEventListener('keydown',(event)=>{
+if (event.code === 'Space'){
+event.preventDefault();
+image.classList.add('jump');
+//image.style.top = image.getBoundingClientRect().top +'px';
+setTimeout(()=>{
+image.classList.remove('jump')},300);
+
+}
+      if (event.key === 'ArrowLeft') {
+        // Move the image to the left by adding the 'left' class
+const curleft = parseInt(image.style.left)||0;
+        image.classList.add('left');
+image.style.left = curleft- 50+'px';
+document.getElementById('p').innerHTML =  image.getBoundingClientRect().left +'px';
+document.getElementById('p').innerHTML =image.style.left;
+
+setTimeout(()=>{
+image.classList.remove('left')},300);
+
+      }
+      if (event.key === 'ArrowRight') {
+        // Remove the 'left' class if it's there and add to the right instead
+          const rect = image.getBoundingClientRect();
+  
+  // Calculate the document position
+  const documentPositionLeft = rect.left + window.scrollX;
+  const documentPositionTop = rect.top + window.scrollY;
+        const currentLeft = parseInt(image.style.left || 0);
+        image.style.left = currentLeft + 50 + 'px';
+document.getElementById('q').innerHTML =documentPositionLeft;
+      }
+
+});
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+

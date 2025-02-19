@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Element</title>
+  <style>
+    .animated-element {
+      opacity: 0; /* Initially hidden */
+      transform: translateY(50px); /* Start position (below the viewport) */
+      animation: slideUp 1s 0.5s forwards; /* Apply the animation with a 0.5s delay */
+    }
+
+    /* Keyframes to animate the element */
+    @keyframes slideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px); /* Start below */
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0); /* End at the normal position */
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="animated-element">
+    <!-- Your content here -->
+<h1>Welcome to Our Magical World!</h1>
+    <p>Get ready to experience the wonders of creativity, innovation, and endless possibilities. Whether you're a curious explorer or a passionate creator, there's something here for you.</p>
+    <button onclick="alert('Let the adventure begin!')">Start Your Journey</button>
+    <h1>Content</h1>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<body>
+<h1> Checking the javascript DOM</h1>
+<button id = 'b1' onclick = 'btnlmnt()'>javascript fn</button>
+<br>
+<br>
+<div id = 'd0'>hello</div> 
+<div id = 'd1'>Hi
+</div>
+<script>
+let count = 0;
+function btnlmnt(){
+count = count+1;
+if(count<2){
+const container = document.getElementById('d1');
+const btn = document.createElement('button');
+btn.innerText = 'I came as a result of javascript fn';
+btn.id = 'b2';
+btn.onclick = ()=> alert('did you mean it?');
+container.appendChild(btn);// container.insertBefore or replaceChild
+document.getElementById('d0').innerHTML += '<button id="b2" onclick="alert(\'did you mean this also?\')">I am by document.getElementById</button>';
+}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Tooltip with Coordinates</title>
+  <style>
+    /* Custom tooltip styling */
+    #tooltip {
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      display: none;
+      pointer-events: none;
+      z-index: 1000;
+    }
+  </style>
+<link rel="icon" type = "image/x-icon" 
+href = "https://github.com/Robert-Richardson1599/htmlimages/blob/main/flowerspart1_1.png?raw=true">
+</head>
+<body>
+  <div>
+    <p>Hover over the image to see the coordinates:</p>
+    <img id="myImage" src="https://github.com/Robert-Richardson1599/htmlimages/blob/main/flowers.jpg?raw=true" alt="Example Image" 
+style="width: 400px; height: 300px; border: 1px solid #ccc;" usemap = "#img1">
+<map name ="img1">
+<area shape="circle" coords="75,106,20" href="#myImage" onclick = "fn1()">
+</map>    
+<div id="tooltip"></div>
+<div id = "div1"> hi</div>
+  </div>
+
+  <script>
+let cnt = 1;
+function fn1(){
+
+
+const cntr = document.getElementById('div1');
+  let existingImg = document.getElementById('imgd');
+
+  // If the image already exists, remove it
+  if (existingImg) {
+    cntr.removeChild(existingImg);
+document.getElementById('imgd').style.display = 'none';
+  }
+
+let imge = document.createElement('img');
+imge.src = "https://github.com/Robert-Richardson1599/htmlimages/blob/main/flowerspart1.jpg?raw=true";
+imge.alt ="flowerpart";
+
+imge.id = 'imgd';
+imge.width=100;
+
+cntr.appendChild(imge);
+
+}
+    const image = document.getElementById('myImage');
+    const tooltip = document.getElementById('tooltip');
+
+    // Show coordinates on mouse move
+    image.addEventListener('mousemove', (event) => {
+      const rect = image.getBoundingClientRect(); // Get image dimensions and position
+      const x = Math.floor(event.clientX - rect.left); // Calculate X relative to the image
+      const y = Math.floor(event.clientY - rect.top); // Calculate Y relative to the image
+
+      // Update tooltip content
+      tooltip.textContent = `X: ${x}, Y: ${y}`;
+
+      // Position and show tooltip
+      tooltip.style.left = `${event.pageX + 10}px`;
+      tooltip.style.top = `${event.pageY + 10}px`;
+      tooltip.style.display = 'block';
+    });
+
+    // Hide tooltip when leaving the image
+    image.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

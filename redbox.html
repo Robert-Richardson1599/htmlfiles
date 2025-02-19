@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RequestAnimationFrame Example</title>
+  <style>
+    .box {
+      width: 50px;
+      height: 50px;
+      background-color: red;
+      position: absolute;
+      top: 100px;
+    }
+    /* Make the page wide enough to scroll */
+    body {
+      width: 3000px; /* Adjust width based on how far you want to move the box */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box"></div>
+
+  <script>
+    // Smooth animation using requestAnimationFrame
+    function animateWithSync() {
+      let startTime = performance.now();
+      
+      function move() {
+        let elapsed = performance.now() - startTime;
+        moveElement(elapsed);
+
+        // Sync the next frame with the browser's refresh cycle
+        requestAnimationFrame(move);
+      }
+      
+      move();  // Start the animation
+    }
+
+    function moveElement(position) {
+      // Move the box horizontally based on elapsed time
+      const box = document.querySelector('.box');
+      box.style.left = position * 0.1 + "px"; // Move the box
+
+      // Scroll the page to follow the box
+      window.scrollTo(position * 0.1, 0); // Scroll horizontally
+    }
+
+    // Start the animation
+    animateWithSync();
+  </script>
+
+</body>
+</html>

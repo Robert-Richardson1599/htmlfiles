@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#im{
+position:absolute;
+top:0px;
+left:0px;
+cursor:grabbing;
+}
+</style>
+</head>
+<body>
+<h1 id = "h1"> The flower</h1>
+<br>
+<br>
+<img alt = "The flower" width = "100px" id = 'im'
+src = "https://github.com/Robert-Richardson1599/htmlimages/blob/main/normal.gif?raw=true">
+<br>
+<br> 
+<br>
+<br>
+<br>
+<br>
+<button id = "b1" onclick = "document.getElementById('im').src = 'https://github.com/Robert-Richardson1599/htmlimages/blob/main/greenflower.gif?raw=true';
+document.getElementById('h1').textContent = 'So you have selected green'
+document.getElementById('h1').textStyle = 'italic';
+document.getElementById('h1').fontFamily = 'sans-serif';">
+Green flower </button>
+<button id = "b2" onclick = "document.getElementById('im').src = 'https://github.com/Robert-Richardson1599/htmlimages/blob/main/blue1flower.gif?raw=true';
+document.getElementById('h1').textContent = 'So you have selected blue'
+document.getElementById('h1').textStyle = 'italic';
+document.getElementById('h1').fontFamily = 'sans-serif';">
+Blue flower</button>
+<button id = "b3" onclick = "document.getElementById('im').src = 'https://github.com/Robert-Richardson1599/htmlimages/blob/main/normal.gif?raw=true'">
+Default</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<button onclick = "move('up')">Up</button>
+<button onclick = "move('down')">Down</button>
+<button onclick = "move('left')">Left</button>
+<button onclick = "move('right')">Right</button>
+
+<script>
+
+
+function move(dir){
+const flower = document.getElementById('im');
+const curtop = parseInt(flower.style.top)||0;
+const curleft = parseInt(flower.style.left)||0;
+
+if (dir==='up'){
+flower.style.top = curtop - 10 +'px';
+}
+if (dir==='down'){
+flower.style.top = curtop + 10 +'px';
+}
+if (dir==='left'){
+flower.style.left = curleft - 10 +'px';
+}
+if (dir==='right'){
+flower.style.left = curleft + 10 +'px';
+}
+}
+
+document.addEventListener('keydown',function(event){
+if (event.key === 'ArrowUp'){
+move('up')
+}
+if (event.key === 'ArrowDown'){
+move('down')
+}
+if (event.key === 'ArrowLeft'){
+move('left')
+}
+if (event.key === 'ArrowRight'){
+move('right')
+}
+
+});
+document.addEventListener('mousemove',function(event){
+const flower = document.getElementById('im');
+const newleft = Math.min(Math.max(event.clientX-flower.offsetWidth/2,0),window.innerWidth-flower.offsetWidth);
+const newtop = Math.min(Math.max(event.clientY-flower.offsetHeight/2,0),window.innerHeight-flower.offsetHeight);
+
+flower.style.top = newtop +'px';
+flower.style.left = newleft + 'px';
+});
+
+
+</script>
+</body>
+</html>

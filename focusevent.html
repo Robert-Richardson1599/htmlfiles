@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+    }
+    body:focus {
+      background-color: #e0f7fa; /* Highlight the body when it gains focus */
+    }
+    button {
+      margin: 10px;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body tabindex="0" onkeydown="handleKey(event)">
+  <button onclick="focusBody()">Focus Body</button>
+  <button>Button 1</button>
+  <button>Button 2</button>
+
+  <script>
+    function focusBody() {
+      document.body.focus(); // Programmatically focus the body
+    }
+
+    function handleKey(event) {
+      if (event.key === 'Escape') {
+        document.body.focus(); // Reset focus to body when Esc is pressed
+      }
+    }
+  </script>
+</body>
+</html>

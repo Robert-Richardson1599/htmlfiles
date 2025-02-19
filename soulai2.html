@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoulHQ Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+        }
+        header {
+            padding: 50px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: white;
+            color: #ff7e5f;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #feb47b;
+            color: white;
+        }
+        section {
+            padding: 50px;
+        }
+        .feature {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+        footer {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to SoulHQ</h1>
+        <p>Your AI-powered experience starts here</p>
+        <a href="#features" class="btn">Explore</a>
+    </header>
+    
+    <section id="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <h3>AI-Powered Insights</h3>
+            <p>Get deep insights with advanced AI technology.</p>
+        </div>
+        <div class="feature">
+            <h3>Interactive Experience</h3>
+            <p>Engage with our smooth and responsive UI.</p>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2025 SoulHQ. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelector('.btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

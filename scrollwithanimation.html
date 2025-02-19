@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smooth Scroll Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    section {
+      height: 1000px; /* Just to make the page tall enough to scroll */
+      padding: 50px;
+    }
+    #get-started {
+      height: 200px;
+      background-color: #f0f0f0;
+      border: 2px solid #ccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      margin-bottom: 50px;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+  <section id="get-started">
+    <p>You've reached the Get Started section!</p>
+  </section>
+ <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+    <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+      <button>Scroll to Get Started</button>
+
+  <section>
+    <p>Scroll down to see the "Get Started" section.</p>
+  </section>
+  <script>
+    function smoothScrollTo(target) {
+      const start = window.pageYOffset; // Where we are currently on the page
+      const end = target.offsetTop; // Where we want to go on the page
+      const duration = 10000//me for scrolling, in milliseconds (900 ms = 0.9 seconds)
+      const startTime = performance.now(); // The exact time when the scroll starts
+
+      // Function that makes the page scroll
+      function scroll() {
+        const elapsed = performance.now() - startTime; // Time that's passed since the scroll started
+        const progress = Math.min(elapsed / duration, 1); // How far we've gone (starts at 0 and ends at 1)
+
+        // Move the page by a certain amount based on how much time has passed
+        window.scrollTo(0, start + (end - start) * easeInOutQuad(progress));
+
+        // If we haven't finished scrolling, keep going
+        if (progress <= 1) {
+          requestAnimationFrame(scroll); // Ask the browser to keep calling this function to keep scrolling
+        }
+      }
+
+      // Easing function: makes the scroll start slow, speed up, then slow down
+      function easeInOutQuad(t) {
+        return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+      }
+
+      requestAnimationFrame(scroll); // Start the scrolling animation
+    }
+
+    // When the button is clicked, we scroll to the element with id 'get-started'
+    const targetElement = document.querySelector('#get-started'); // Find the element
+    document.querySelector('button').addEventListener('click', () => smoothScrollTo(targetElement)); // Listen for a click
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>When you enter the input field, a function is triggered which sets the background color to yellow. When you leave the input field, a function is triggered which sets the background color to red. If you press Enter, the text will be sent to a downloadable file and the input will turn green.</p>
+
+Enter your name: <input type="text" id="myInput" onfocus="focusFunction()" onblur="blurFunction()" onkeydown="checkEnter(event)">
+
+<script>
+// Focus = Changes the background color of input to yellow
+function focusFunction() {
+  document.getElementById("myInput").style.background = "yellow";
+}
+
+// No focus = Changes the background color of input to red
+function blurFunction() {
+  document.getElementById("myInput").style.background = "red";
+}
+
+// Check if Enter is pressed and handle the input
+function checkEnter(event) {
+  if (event.key === "Enter") {
+    var inputText = document.getElementById("myInput").value;
+
+    // If the input field is not empty
+    if (inputText.trim() !== "") {
+      // Change the input background to green on pressing Enter
+      document.getElementById("myInput").style.background = "green";
+      
+      // Call function to generate a file (for simplicity, we'll create a CSV)
+      createDownloadFile(inputText);
+
+    } else {
+      alert("Please enter some text before pressing Enter.");
+    }
+  }
+}
+
+// Function to create a downloadable CSV file (or text file)
+function createDownloadFile(inputText) {
+  // Creating a CSV file content with the inputText
+  var csvContent = "Name\n" + inputText;
+
+  // Create a blob from the content
+  var blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+  
+  // Create a link element
+  var link = document.createElement("a");
+  
+  // Create an object URL for the blob and set it as href attribute
+  link.href = URL.createObjectURL(blob);
+  
+  // Set the filename for the download
+  link.download = "user_input.csv";
+  
+  // Trigger the download by simulating a click event
+  link.click();
+}
+
+</script>
+
+</body>
+</html>
+

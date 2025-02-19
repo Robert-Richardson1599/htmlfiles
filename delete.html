@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conditional Content Toggle</title>
+</head>
+<body>
+    <h1>Conditional Content</h1>
+
+    <div id="content1" style="display:none;">
+        <p>This content is shown or hidden based on your input.</p>
+    </div>
+
+    <!-- Text input to type 'yes' or 'no' -->
+    <label for="conditionInput">Type "yes" to show content, "no" to hide:</label>
+    <input type="text" id="conditionInput" placeholder="Type yes or no">
+
+    <button onclick="toggleContent()">Toggle Content</button>
+
+    <script>
+        function toggleContent() {
+            // Get the user's input and convert it to lowercase
+            let userInput = document.getElementById('conditionInput').value.trim().toLowerCase();
+
+            // Check if the input is 'yes'
+            if (userInput === 'yes') {
+                document.getElementById('content1').style.display = 'block'; // Show content1
+            } else if (userInput === 'no') {
+                document.getElementById('content1').style.display = 'none'; // Hide content1
+            } else {
+                alert("Please type 'yes' or 'no' to toggle the content.");
+            }
+        }
+    </script>
+</body>
+</html>

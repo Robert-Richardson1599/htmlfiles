@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Format Display</title>
+</head>
+<body>
+
+<h2>Video Player</h2>
+
+<video id="myVideo" controls oncanplay="detectVideoFormat()">
+  <source src="mov_bbb.mp4" type="video/mp4">
+  <source src="mov_bbb.ogg" type="video/ogg">
+  Your browser does not support HTML5 video.
+</video>
+
+<p id="videoFormat">Video format will be displayed here.</p>
+
+<script>
+  function detectVideoFormat() {
+    var videoElement = document.getElementById("myVideo");
+    var formatDisplay = document.getElementById("videoFormat");
+    
+    // Get the current source of the video being played
+    var currentSource = videoElement.currentSrc;
+
+    // Check which source is playing and display it
+    if (currentSource.includes("mov_bbb.mp4")) {
+      formatDisplay.textContent = "Currently playing: MP4 format";
+    } else if (currentSource.includes("mov_bbb.ogg")) {
+      formatDisplay.textContent = "Currently playing: OGG format";
+    }
+  }
+function handleVisibilityChange() {
+  var video = document.getElementById("myVideo");
+  // Check if the page becomes visible
+  if (document.visibilityState === 'visible') {
+    // If the page becomes visible, resume the video if it's paused
+    if (video.paused) {
+      video.play();
+    }
+  }
+}
+
+// Add event listener for visibility change
+document.addEventListener('visibilitychange', handleVisibilityChange);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#im {
+  position: absolute; /* Change to absolute to allow precise positioning */
+  top: 10px;
+  left: 0px;
+cursor:none;
+}
+</style>
+</head>
+<body>
+<div>
+  <h1 id="h1">The moving flower</h1>
+  <img id="im" src="https://github.com/Robert-Richardson1599/htmlimages/blob/main/greenflower.gif?raw=true" 
+  alt="flower image" width="100px">
+</div>
+
+<script>
+document.addEventListener('mousemove', function(event) {
+  const windowWidth = window.innerWidth;
+  const windowHeight = window.innerHeight;
+  const flower = document.getElementById('im');
+
+  // Calculate new position
+  const newLeft = Math.min(
+    Math.max(event.clientX - flower.offsetWidth / 2, 0),
+    windowWidth - flower.offsetWidth
+  );
+
+  const newTop = Math.min(
+    Math.max(event.clientY - flower.offsetHeight / 2, 0),
+    windowHeight - flower.offsetHeight
+  );
+
+  // Set the position of the flower
+  flower.style.left = newLeft + 'px';
+  flower.style.top = newTop + 'px';
+});
+</script>
+</body>
+</html>
